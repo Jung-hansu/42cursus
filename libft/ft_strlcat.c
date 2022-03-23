@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanjung <hanjung@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 17:18:12 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 17:26:41 by hanjung          ###   ########.fr       */
+/*   Created: 2022/03/23 17:10:35 by hanjung           #+#    #+#             */
+/*   Updated: 2022/03/23 17:26:55 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	ft_memmove(void *dest, const void *src, size_t num)
+int	ft_strlcat(char *dest, const char *src, size_t destsize)
 {
-	size_t	i;
+	int	i;
+	int	j;
+	int	dstlen;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	if (dest < src)
-	{
-		i = 0;
-		while (i < num)
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i++];
-	}
-	else
-	{
-		i = num;
-		while (i-- > 0)
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-	}
-	return (dest);
+	i = 0;
+	j = 0;
+	while (dest[i] && i < (int)destsize)
+		i++;
+	dstlen = i;
+	while (src[j] && i + j + 1 < (int)destsize)
+		dest[i++] = src[j++];
+	dest[i] = 0;
+	return (dstlen + ft_strlen(src));
 }
