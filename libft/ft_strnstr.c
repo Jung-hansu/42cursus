@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 16:49:31 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
+/*   Created: 2022/03/23 21:39:27 by hanjung           #+#    #+#             */
+/*   Updated: 2022/03/31 20:37:23 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *arr)
+#include <stdlib.h>
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	tmp;
 
 	i = 0;
-	while (arr[i])
+	while (big[i] && i < len)
+	{
+		tmp = 0;
+		if (little[tmp] == big[i + tmp])
+		{
+			while (little[tmp] && big[i + tmp])
+			{
+				if (little[tmp] != big[i + tmp] || (i + tmp) >= len)
+					break ;
+				tmp++;
+			}
+			if (little[tmp] == 0)
+				return (&((char *)big)[i]);
+		}
 		i++;
-	return (i);
+	}
+	return ((void *)0);
 }

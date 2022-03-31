@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 16:39:43 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
+/*   Created: 2022/03/31 20:37:51 by hanjung           #+#    #+#             */
+/*   Updated: 2022/03/31 20:55:59 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char s)
+#include <stdlib.h>
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	if (s >= '0' && s <= '9')
-		return (4);
-	return (0);
+	char	*p;
+
+	p = (char *)malloc(count * size);
+	if (!p)
+		return (0);
+	ft_bzero(p, count * size);
+	return ((void *)p);
 }

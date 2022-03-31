@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 17:18:12 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 17:26:41 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_memmove(void *dest, const void *src, size_t num)
 {
 	size_t	i;
 
-	if (dest == NULL && src == NULL)
+	if (!(dest) && !(src))
 		return (NULL);
 	if (dest < src)
 	{
