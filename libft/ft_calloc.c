@@ -6,19 +6,22 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:08:59 by hanjung           #+#    #+#             */
-/*   Updated: 2022/04/20 20:09:46 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/04/20 21:50:48 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t num, size_t size)
+void	*ft_calloc(size_t size, size_t count)
 {
-	void	*mem;
+	void	*result;
 
-	mem = malloc(num * size);
-	if (!mem)
-		return (0);
-	ft_bzero(mem, (num * size));
-	return (mem);
+	result = malloc(size * count);
+	if (!size || !count)
+		return (malloc(0));
+	if (count > SIZE_MAX / size)
+		return (malloc(SIZE_MAX));
+	if (result)
+		ft_bzero(result, size * count);
+	return (result);
 }
