@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:13:41 by hanjung           #+#    #+#             */
-/*   Updated: 2022/04/20 19:13:48 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/04/20 20:02:56 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	result = malloc(sizeof(char *) * (ft_isincluded(s, c) + 1));
 	if (result == 0)
-		 return (ft_free(&result, 2));
+		return (ft_free(&result, 2));
 	i = -1;
 	count = 0;
 	while (s[++i] != '\0')

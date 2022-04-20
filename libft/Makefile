@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+         #
+#    By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/20 19:21:40 by hanjung           #+#    #+#              #
-#    Updated: 2022/04/20 19:25:59 by hanjung          ###   ########.fr        #
+#    Updated: 2022/04/20 20:20:30 by hanjung          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,11 @@ SRCS =	ft_memset.c \
 		ft_split.c \
 		ft_itoa.c \
 		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c \
 
 OBJS = $(SRCS:.c=.o)
 RM = rm -f
