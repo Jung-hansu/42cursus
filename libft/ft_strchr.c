@@ -3,20 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 19:27:35 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
+/*   Created: 2022/04/20 19:13:54 by hanjung           #+#    #+#             */
+/*   Updated: 2022/04/20 19:14:00 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+char	*ft_strchr(const char *str, int character)
 {
-	while (*s != (char)c)
+	char	find;
+	int		i;
+
+	find = (unsigned int)character;
+	i = 0;
+	while (str[i])
 	{
-		if (*s == 0)
-			return (0);
-		s++;
+		if (str[i] == find)
+		{
+			return ((char *)str + i);
+		}
+		i++;
 	}
-	return ((char *)s);
+	if (str[i] == find)
+	{
+		return ((char *)str + i);
+	}
+	return (0);
 }

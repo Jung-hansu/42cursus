@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 16:39:43 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
+/*   Created: 2022/04/20 19:10:47 by hanjung           #+#    #+#             */
+/*   Updated: 2022/04/20 19:10:53 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char s)
+int	ft_isdigit(int c)
 {
-	if (s >= '0' && s <= '9')
-		return (4);
-	return (0);
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

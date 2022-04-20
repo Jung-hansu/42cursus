@@ -3,32 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 17:18:12 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
+/*   Created: 2022/04/20 19:13:01 by hanjung           #+#    #+#             */
+/*   Updated: 2022/04/20 19:13:08 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	ft_memmove(void *dest, const void *src, size_t num)
+void	*ft_memmove(void *dst, const void *src, size_t num)
 {
-	size_t	i;
+	unsigned char	*tmp_dst;
+	unsigned char	*tmp_src;
+	unsigned int	i;
 
-	if (!(dest) && !(src))
-		return (NULL);
-	if (dest < src)
+	if (!dst && !src)
+		return (dst);
+	tmp_dst = (unsigned char *)dst;
+	tmp_src = (unsigned char *)src;
+	i = 0;
+	if (dst < src)
 	{
-		i = 0;
-		while (i < num)
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i++];
+		while (i++ < num)
+		{
+			tmp_dst[i - 1] = tmp_src[i - 1];
+		}
 	}
 	else
 	{
-		i = num;
-		while (i-- > 0)
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		while (i < num)
+		{
+			tmp_dst[num - 1 - i] = tmp_src[num - 1 - i];
+			i++;
+		}
 	}
-	return (dest);
+	return (dst);
 }

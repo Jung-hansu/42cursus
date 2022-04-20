@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 16:42:37 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
+/*   Created: 2022/04/20 19:09:22 by hanjung           #+#    #+#             */
+/*   Updated: 2022/04/20 19:10:15 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(char s)
+int	ft_isalnum(int c)
 {
-	if (s >= '0' && s <= '9')
-		return (4);
-	if (s >= 'a' && s <= 'z')
-		return (2);
-	if (s >= 'A' && s <= 'Z')
+	if (c >= '0' && c <= '9')
 		return (1);
-	return (0);
+	else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	else
+		return (0);
 }

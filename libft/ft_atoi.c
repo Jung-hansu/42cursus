@@ -3,50 +3,79 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 20:28:26 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/31 20:37:18 by hanjung          ###   ########.fr       */
+/*   Created: 2022/04/20 19:06:55 by hanjung           #+#    #+#             */
+/*   Updated: 2022/04/20 19:07:05 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-static int	set_num(char *arr, int index)
+static int	ft_isspace(char s)
 {
-	int	i;
-	int	j;
-	int	int_num;
-
-	i = 0;
-	j = 0;
-	int_num = 0;
-	if (!(arr[index] >= '0' && arr[index] <= '9'))
-		return (0);
-	while (arr[index + i] >= '0' && arr[index + i] <= '9')
-		i++;
-	while (j < i)
-	{
-		int_num = int_num * 10 + arr[index + j] - '0';
-		j++;
-	}
-	return (int_num);
+	if ((s >= 9 && s <= 13) || s == ' ')
+		return (1);
+	return (0);
 }
 
-int	ft_atoi(const char *str)
+static int	isnum(char s)
 {
-	int	i;
-	int	sign;
+	if (s >= '0' && s <= '9')
+		return (1);
+	return (0);
+}
 
-	i = 0;
-	sign = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	while (str[i] == '+' || str[i] == '-')
+static int	issign(char s)
+{
+	if (s == '+' || s == '-')
+		return (1);
+	return (0);
+}
+
+static long long int	calnum(char *str, int sign)
+{
+	long long int	num;
+	int				digit;
+
+	digit = 0;
+	num = 0;
+	while (isnum(*str))
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		num = num * 10;
+		num += (*str - '0');
+		str++;
+		digit++;
+		if (num < 0 || digit == 19)
+		{
+			if (sign > 0)
+				return (-1);
+			else
+				return (0);
+		}
 	}
-	return (sign * set_num(str, i));
+	return (num);
+}
+
+int	ft_atoi(char *s)
+{
+	int				sign;
+	int				cnt;
+	long long int	num;
+	int				digit;
+
+	sign = 1;
+	cnt = 0;
+	num = 0;
+	digit = 0;
+	while (ft_isspace(*s))
+		s++;
+	while (issign(*s))
+	{
+		if (*s++ == '-')
+			sign *= -1;
+		cnt++;
+	}
+	if (cnt > 1)
+		return (0);
+	num = calnum((char *)s, sign);
+	return (num * sign);
 }

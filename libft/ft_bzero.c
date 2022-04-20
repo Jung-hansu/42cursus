@@ -3,21 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 17:07:26 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
+/*   Created: 2022/04/20 19:08:32 by hanjung           #+#    #+#             */
+/*   Updated: 2022/04/20 19:10:01 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	*ft_bzero(void *ptr, size_t num)
+void	ft_bzero(void *ptr, size_t num)
 {
-	char	*tmp;
+	unsigned char	*temp;
+	size_t			i;
 
-	tmp = (char *)ptr;
-	while (num--)
-		*(tmp++) = 0;
-	return (ptr);
+	temp = ptr;
+	i = 0;
+	while (i < num)
+	{
+		temp[i] = 0;
+		i++;
+	}
 }

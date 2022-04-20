@@ -3,24 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 21:00:30 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
+/*   Created: 2022/04/20 19:12:07 by hanjung           #+#    #+#             */
+/*   Updated: 2022/04/20 19:12:15 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memchr(const void *ptr, int value, size_t num)
+void	*ft_memchr(const void *ptr, int c, size_t num)
 {
-	size_t	i;
+	unsigned char	*tmp_ptr;
+	unsigned char	find;
+	unsigned int	i;
 
+	tmp_ptr = (unsigned char *)ptr;
+	find = (unsigned char)c;
 	i = 0;
 	while (i < num)
 	{
-		if (((unsigned char *)ptr)[i] != (unsigned char)value)
-			return ((void *)ptr + i);
+		if (tmp_ptr[i] == find)
+			return (&tmp_ptr[i]);
 		i++;
 	}
 	return (0);

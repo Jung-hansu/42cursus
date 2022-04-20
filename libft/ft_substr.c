@@ -3,30 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 15:50:40 by hanjung           #+#    #+#             */
-/*   Updated: 2022/03/23 21:47:55 by hanjung          ###   ########.fr       */
+/*   Created: 2022/04/20 19:18:47 by hanjung           #+#    #+#             */
+/*   Updated: 2022/04/20 19:18:55 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	char	*arr;
-	char	*tmp;
-	int		i;
+	char	*ret;
+	size_t	t;
+	size_t	slen;
 
-	arr = (char *)malloc(sizeof(char) * len + 1);
-	if (!arr)
-		return (0);
-	tmp = arr;
-	i = 0;
-	while (i < (int)len)
+	t = 0;
+	slen = 0;
+	if (str == NULL)
+		return (NULL);
+	slen = ft_strlen(str);
+	if (slen < start)
+		return (ft_strdup(""));
+	if (start + len > slen)
+		len = slen - start;
+	ret = (char *)malloc(sizeof(char) * (len + 1));
+	if (ret == 0)
+		return (NULL);
+	while (t < len && start + t < slen)
 	{
-		*(tmp + i) = s[start + i];
-		i++;
+		ret[t] = str[start + t];
+		t++;
 	}
-	return (arr);
+	ret[t] = '\0';
+	return (ret);
 }

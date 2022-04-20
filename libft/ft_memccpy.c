@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 19:14:04 by hanjung           #+#    #+#             */
-/*   Updated: 2022/04/20 19:14:10 by hanjung          ###   ########.fr       */
+/*   Created: 2022/04/20 19:11:43 by hanjung           #+#    #+#             */
+/*   Updated: 2022/04/20 19:11:51 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t num)
 {
-	int		i;
-	int		len;
-	char	*new;
+	unsigned char	*temp_dst;
+	unsigned char	*temp_src;
+	size_t			i;
 
+	temp_dst = dst;
+	temp_src = (unsigned char *)src;
 	i = 0;
-	len = 0;
-	while (str[len])
+	while (i < num)
 	{
-		len++;
-	}
-	new = (char *)malloc(sizeof(char) * (len + 1));
-	if (!(new))
-		return (NULL);
-	while (str[i])
-	{
-		new[i] = str[i];
+		temp_dst[i] = temp_src[i];
+		if (temp_src[i] == (unsigned char)c)
+		{
+			return (&dst[i + 1]);
+		}
 		i++;
 	}
-	new[i] = '\0';
-	return (new);
+	return (0);
 }
