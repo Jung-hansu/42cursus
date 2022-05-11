@@ -6,7 +6,7 @@
 #    By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/20 19:21:40 by hanjung           #+#    #+#              #
-#    Updated: 2022/05/11 16:03:29 by hanjung          ###   ########.fr        #
+#    Updated: 2022/05/11 16:13:29 by hanjung          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,9 @@ SRCS =	ft_memset.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-		ft_lstnew.c \
+		ft_putnbr_fd.c
+
+BONUS =	ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
@@ -60,9 +61,12 @@ SRCS =	ft_memset.c \
 		ft_lstmap.c
 
 OBJS = $(SRCS:.c=.o)
+BONUSOBJS = $(BONUS:.c=.o)
 RM = rm -f
 
 all : $(NAME)
+
+bonus : $(BNAME)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -70,8 +74,11 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	ar cr $(NAME) $^
 
+$(BNAME) : $(OBJS) $(BONUSOBJS)
+	ar cr $(BNAME) $^
+
 clean :
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUSOBJS)
 
 fclean : clean
 	$(RM) $(NAME)
