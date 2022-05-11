@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:21:02 by hanjung           #+#    #+#             */
-/*   Updated: 2022/05/11 16:01:56 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/11 18:07:33 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 void		*ft_memset(void *ptr, int value, size_t num);
 void		*ft_memcpy(void *dst, const void *src, size_t num);
-void		*ft_memccpy(void *dst, const void *src, int c, size_t num);
 void		*ft_memmove(void *dst, const void *src, size_t num);
 void		*ft_memchr(const void *ptr, int c, size_t num);
 void		ft_bzero(void *ptr, size_t num);

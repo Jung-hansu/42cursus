@@ -6,7 +6,7 @@
 #    By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/20 19:21:40 by hanjung           #+#    #+#              #
-#    Updated: 2022/05/11 16:37:10 by hanjung          ###   ########.fr        #
+#    Updated: 2022/05/11 18:04:28 by hanjung          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ NAME = libft.a
 SRCS =	ft_memset.c \
 		ft_bzero.c \
 		ft_memcpy.c \
-		ft_memccpy.c \
 		ft_memmove.c \
 		ft_memchr.c \
 		ft_memcmp.c \
