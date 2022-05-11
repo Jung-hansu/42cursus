@@ -6,13 +6,13 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:13:41 by hanjung           #+#    #+#             */
-/*   Updated: 2022/04/20 20:02:56 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/11 14:25:15 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	unsigned int	ft_isincluded(char const *s, char c)
+static unsigned int	ft_isincluded(char const *s, char c)
 {
 	unsigned int	cnt;
 
@@ -31,7 +31,7 @@ static	unsigned int	ft_isincluded(char const *s, char c)
 	return (cnt);
 }
 
-static	char	**ft_free(char ***result, unsigned int count)
+static char	**ft_free(char ***result, unsigned int count)
 {
 	unsigned int	i;
 
