@@ -6,7 +6,7 @@
 #    By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/20 19:21:40 by hanjung           #+#    #+#              #
-#    Updated: 2022/05/11 16:13:29 by hanjung          ###   ########.fr        #
+#    Updated: 2022/05/11 16:37:10 by hanjung          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,12 +61,14 @@ BONUS =	ft_lstnew.c \
 		ft_lstmap.c
 
 OBJS = $(SRCS:.c=.o)
-BONUSOBJS = $(BONUS:.c=.o)
+OBJS_BONUS = $(BONUS:.c=.o)
+
 RM = rm -f
 
 all : $(NAME)
 
-bonus : $(BNAME)
+bonus : $(OBJS) $(OBJS_BONUS)
+	ar cr $(NAME) $^
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -74,11 +76,8 @@ bonus : $(BNAME)
 $(NAME) : $(OBJS)
 	ar cr $(NAME) $^
 
-$(BNAME) : $(OBJS) $(BONUSOBJS)
-	ar cr $(BNAME) $^
-
 clean :
-	$(RM) $(OBJS) $(BONUSOBJS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean : clean
 	$(RM) $(NAME)
