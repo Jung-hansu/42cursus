@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:11:16 by hanjung           #+#    #+#             */
-/*   Updated: 2022/05/11 15:58:29 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/11 16:41:24 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	if (!(*lst))
 		*lst = new;
-	(ft_lstlast(*lst))->next = new;
+	else
+		(ft_lstlast(*lst))->next = new;
 }
