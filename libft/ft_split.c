@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:13:41 by hanjung           #+#    #+#             */
-/*   Updated: 2022/05/19 16:04:30 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/19 20:12:47 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	**ft_split(char const *s, char c)
 		if (j != i)
 			result[count++] = ft_substr(s, j, (i--) - j);
 		if (j != i + 1 && &(result[count - 1]) == 0)
-			return (ft_free(&result, ft_isincluded(s, c)));
+			return (ft_free(&result, count - 2));
 	}
 	result[count] = 0;
 	return (result);

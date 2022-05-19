@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:08:59 by hanjung           #+#    #+#             */
-/*   Updated: 2022/05/19 17:05:18 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/19 20:36:59 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*result;
+	void	*ptr;
 
-	result = malloc(size * count);
-	if (!size || !count)
-		return (malloc(0));
-	if (count > SIZE_MAX / size)
-		return (malloc(SIZE_MAX));
-	if (result)
-		ft_bzero(result, size * count);
-	return (result);
+	if (size && count > SIZE_MAX / size)
+		return (0);
+	ptr = (void *)malloc(count * size);
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }

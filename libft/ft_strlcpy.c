@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:15:09 by hanjung           #+#    #+#             */
-/*   Updated: 2022/05/19 17:24:43 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/19 20:14:56 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t len)
 {
 	unsigned int	i;
+	int				*tmp;
 
 	i = 0;
+	tmp = 0;
+	if ((!dst && !src))
+		*tmp = 0;
 	if (!dst || !src)
-		return (0);
-	if (!dst && !src)
 		return (0);
 	if (len > 0)
 	{
