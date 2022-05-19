@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hanjung <hanjung@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:06:55 by hanjung           #+#    #+#             */
-/*   Updated: 2022/04/20 19:07:05 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/19 16:30:05 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,10 @@ int	ft_atoi(char *s)
 	int				sign;
 	int				cnt;
 	long long int	num;
-	int				digit;
 
 	sign = 1;
 	cnt = 0;
 	num = 0;
-	digit = 0;
 	while (ft_isspace(*s))
 		s++;
 	while (issign(*s))
