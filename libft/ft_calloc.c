@@ -6,13 +6,13 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:08:59 by hanjung           #+#    #+#             */
-/*   Updated: 2022/04/20 21:50:48 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/19 15:04:38 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t size, size_t count)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*result;
 

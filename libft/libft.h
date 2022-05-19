@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:21:02 by hanjung           #+#    #+#             */
-/*   Updated: 2022/05/11 18:07:33 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/19 15:01:27 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		*ft_memchr(const void *ptr, int c, size_t num);
 void		ft_bzero(void *ptr, size_t num);
 int			ft_memcmp(const void *s1, const void *s2, size_t num);
 
-void		*ft_calloc(size_t num, size_t size);
+void		*ft_calloc(size_t count, size_t size);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);

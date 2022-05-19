@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:13:41 by hanjung           #+#    #+#             */
-/*   Updated: 2022/05/11 14:25:15 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/05/19 16:04:30 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,7 @@ static char	**ft_free(char ***result, unsigned int count)
 		return (0);
 	i = count;
 	while (i != 0)
-	{
 		free((*result)[--i]);
-	}
 	free(*result);
 	return (0);
 }
@@ -56,8 +54,8 @@ char	**ft_split(char const *s, char c)
 	if (s == 0)
 		return (0);
 	result = malloc(sizeof(char *) * (ft_isincluded(s, c) + 1));
-	if (result == 0)
-		return (ft_free(&result, 2));
+	if (!result)
+		return (0);
 	i = -1;
 	count = 0;
 	while (s[++i] != '\0')
@@ -66,10 +64,9 @@ char	**ft_split(char const *s, char c)
 		while (s[i] != c && s[i] != '\0')
 			i++;
 		if (j != i)
-		{
-			result[count] = ft_substr(s, j, (i--) - j);
-			count++;
-		}
+			result[count++] = ft_substr(s, j, (i--) - j);
+		if (j != i + 1 && &(result[count - 1]) == 0)
+			return (ft_free(&result, ft_isincluded(s, c)));
 	}
 	result[count] = 0;
 	return (result);
