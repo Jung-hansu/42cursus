@@ -11,43 +11,31 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
-static int	set_form(const char **format, va_list ap)
+static int	set_form(const char **s, va_list ap)
 {
-	if (**format == 'c')
-		ft_putchar_fd(ap, 1);
-	else if (**format == 's')
-		ft_putstr_fd(ap, 1);
-	else if (**format == 'p')
-		;
-	else if (**format == 'd' || **format == 'i')
-		ft_putnbr_fd(ap, 1);
-	else if (**format == 'o')
-
-	(*format)++;
-	
+	if (!(*s))
+		return (-1);
+	if (**s == '#')
+		
 }
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(const char *s, ...)
 {
 	va_list	ap;
 	int		res_len;
 	int		read_form;
 
 	res_len = 0;
-	va_start(ap, format);
-	while (*format)
+	va_start(ap, s);
+	while (*s)
 	{
-		if (*format != '%')
-		{
-			write(1, format++, 1);
-			res_len++;
-		}
+		if (*s != '%')
+			res_len += write(1, s++, 1);
 		else
 		{
-			++format;
-			read_form = set_form(&format, ap); //format parsing 필요
+			
+			read_form = set_form(&s, ap); //format parsing 필요
 			if (read_form < 0)
 				return (-1);
 			res_len += read_form;
