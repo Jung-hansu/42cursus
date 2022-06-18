@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/18 19:26:46 by hanjung           #+#    #+#             */
+/*   Updated: 2022/06/18 19:27:15 by hanjung          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -59,4 +71,24 @@ size_t	ft_strlen(const char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+int	find_newline(char *str)
+{
+	int idx;
+
+	idx = 0;
+	while (str[idx] != '\n' && str[idx] != '\0')
+		idx++;
+	return (idx);
+}
+
+int	find_end(char *str)
+{
+	int idx;
+
+	idx = 0;
+	while (!str[idx])
+		idx++;
+	return idx;
 }
