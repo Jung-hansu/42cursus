@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 19:26:40 by hanjung           #+#    #+#             */
-/*   Updated: 2022/06/18 19:29:09 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/07/10 16:27:15 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,15 @@ char	*get_next_line(int fd)
 	n = BUFFER_SIZE;
 	while (n == BUFFER_SIZE && !find_end(buf))
 	{
-
+		n = read(fd, buf, BUFFER_SIZE);
+		if (n < 0)
+			return (ft_free(&line));
+		buf[n] = 0;
+		line = ft_strjoin(line, buf);
+		if (!line)
+			return (ft_free(&line));
+		if (n == BUFFER_SIZE)
+			n = find_newline(buf);
 	}
+	return (get_line(buf, &line, 0));
 }
