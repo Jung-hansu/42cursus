@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 19:27:02 by hanjung           #+#    #+#             */
-/*   Updated: 2022/07/10 16:27:14 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/07/16 09:52:21 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ char	*get_line(char buf[], char **line, int n);
 char	*get_next_line(int fd);
 
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strdup(const char *str);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 size_t	ft_strlen(const char *str);
-int	find_newline(char *str);
-int	find_end(char *str);
+size_t	find_newline(char const *str);
+int		find_end(char *str);
 
 #endif
