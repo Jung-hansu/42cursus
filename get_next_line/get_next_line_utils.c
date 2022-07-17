@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 19:26:46 by hanjung           #+#    #+#             */
-/*   Updated: 2022/07/17 16:52:25 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/07/17 17:35:20 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		*(res + i + j) = *(s2 + j);
 		j++;
 		if (*(s2 + j - 1) == '\n')
-			break;
+			break ;
 	}
 	*(res + i + j) = 0;
 	return (res);
