@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 19:26:46 by hanjung           #+#    #+#             */
-/*   Updated: 2022/07/17 17:35:20 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/07/17 20:39:46 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			break ;
 	}
 	*(res + i + j) = 0;
+	free((void *)s1);
 	return (res);
 }
 
@@ -47,7 +48,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	ptr_src = (unsigned char *)src;
 	ptr_dest = (unsigned char *)dest;
 	if (ptr_src == ptr_dest)
-		return (NULL);
+		return (0);
 	while (i < n)
 	{
 		*(ptr_dest + i) = *(ptr_src + i);
@@ -86,6 +87,8 @@ int	find_end(char *str)
 {
 	int	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i])
 	{
