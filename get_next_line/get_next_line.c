@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 19:26:40 by hanjung           #+#    #+#             */
-/*   Updated: 2022/07/17 20:45:40 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/07/23 15:50:31 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ char	*get_line(char buf[], char **line, int n)
 	if (find_newline(buf) != ft_strlen(buf))
 	{
 		ft_cut(buf, find_newline(buf) + 1);
-		if (!find_end(*line) || ft_strlen(*line))
+		if (find_end(*line) || ft_strlen(*line))
 			return (*line);
 	}
 	else if (find_newline(buf) == ft_strlen(buf))
 	{
 		while (n < BUFFER_SIZE)
 			buf[n++] = 0;
-		if (!find_end(*line) || ft_strlen(*line))
+		if (find_end(*line) || ft_strlen(*line))
 			return (*line);
 	}
 	return (ft_free(line));
@@ -61,7 +61,7 @@ char	*get_next_line(int fd)
 	if (find_newline(buf) != ft_strlen(buf))
 		return (get_line(buf, &line, 0));
 	n = BUFFER_SIZE;
-	while (n == BUFFER_SIZE && find_end(buf))
+	while (n == BUFFER_SIZE && !find_end(buf))
 	{
 		n = read(fd, buf, BUFFER_SIZE);
 		if (n < 0)

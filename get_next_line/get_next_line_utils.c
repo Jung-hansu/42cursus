@@ -6,7 +6,7 @@
 /*   By: hanjung <hanjung@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 19:26:46 by hanjung           #+#    #+#             */
-/*   Updated: 2022/07/22 21:04:55 by hanjung          ###   ########.fr       */
+/*   Updated: 2022/07/23 15:50:11 by hanjung          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ int	find_end(char *str)
 	while (str[i])
 	{
 		if (str[i] == '\n')
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
